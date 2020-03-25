@@ -2,3 +2,17 @@ language: node_js
 node_js:
   - 12.16.1
   - node
+cache: yarn
+
+install:
+  - yarn install
+
+script:
+  - yarn test
+  - yarn run build
+
+deploy:
+  provider: pages
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: gh-pages
